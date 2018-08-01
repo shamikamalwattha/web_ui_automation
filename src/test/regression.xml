@@ -1,0 +1,9 @@
+<?xml version="1.0-SNAPSHOT" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0-SNAPSHOT.dtd" >
+<suite name="regression" verbose="1" configfailurepolicy="continue">
+    <test name="regression">
+        <packages>
+            <package name="com.sysco.web_ui_automation.tests"/>
+        </packages>
+    </test>
+</suite>
