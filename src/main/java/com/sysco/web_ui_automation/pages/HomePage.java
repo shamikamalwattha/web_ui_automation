@@ -7,13 +7,7 @@ public class HomePage extends PageBase {
 
     private By divBanner = By.className("home-hero-banner");
 
-    public void waitUntillPageLoaded(){
-        syscoLabUI.waitTillElementLoaded(divBanner);
+    public boolean isHomePageBannerVisible(){
+        return isDisplayed(divBanner,10L);
     }
-
-    public boolean isHomePageLoaded(){
-        return isDisplayed(divBanner,15L);
-    }
-
-
 }

@@ -7,6 +7,7 @@ public class Home {
     private static HomePage homePage = new HomePage();
 
     public static boolean verifyPageLoaded(){
-        return homePage.isHomePageLoaded();
+        return homePage.isHomePageBannerVisible();
     }
+
 }

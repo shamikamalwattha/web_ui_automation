@@ -2,11 +2,10 @@ package com.sysco.web_ui_automation.pages;
 
 import com.syscolab.qe.core.common.LoggerUtil;
 import com.syscolab.qe.core.ui.SyscoLabUI;
-import com.syscolab.qe.core.ui.web.SyscoLabWUI;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
@@ -38,5 +37,14 @@ public abstract class PageBase {
 
     public static void setWebDriver(RemoteWebDriver webDriver) {
         PageBase.webDriver = webDriver;
+    }
+
+    public void sleep(long seconds){
+
+        try {
+            Thread.sleep(seconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

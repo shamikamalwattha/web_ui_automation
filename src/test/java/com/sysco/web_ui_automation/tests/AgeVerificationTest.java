@@ -3,6 +3,7 @@ package com.sysco.web_ui_automation.tests;
 import com.sysco.web_ui_automation.Types.UserTypes;
 import com.sysco.web_ui_automation.data.UserData;
 import com.sysco.web_ui_automation.functions.AgeVerification;
+import com.sysco.web_ui_automation.functions.Home;
 import com.sysco.web_ui_automation.pages.HomePage;
 import com.sysco.web_ui_automation.utils.TestBase;
 import com.syscolab.qe.core.reporting.SyscoLabListener;
@@ -24,7 +25,7 @@ public class AgeVerificationTest extends TestBase {
     }
 
     @Test(description = "Verify age less than 18 message")
-    public void verifyAgeLessThan18(){
+    public void testAgeLessThan18(){
 
         softAssert = new SoftAssert();
         AgeVerification.verifyPageLoaded();
@@ -37,14 +38,13 @@ public class AgeVerificationTest extends TestBase {
     }
 
     @Test(description = "Verify legal age users are navigated to home page", dependsOnMethods = "verifyAgeLessThan18")
-    public void verifyAgeMoreThan18(){
+    public void testAgeMoreThan18(){
 
         softAssert = new SoftAssert();
-        HomePage homePage = new HomePage();
         AgeVerification.verifyPageLoaded();
         UserData legalAgeUser = new UserData(UserTypes.LEGAL_AGE);
         AgeVerification.enterBirthDate(legalAgeUser);
-        softAssert.assertTrue(homePage.isHomePageLoaded(), "Verify legal age user is navigated to home page.");
+        softAssert.assertTrue(Home.verifyPageLoaded(), "Verify legal age user is navigated to home page.");
         softAssert.assertAll();
     }
 
