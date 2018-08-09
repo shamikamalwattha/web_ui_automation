@@ -11,6 +11,12 @@ public class UserData {
     private String country;
     private String email;
     private String password;
+    private String firstName;
+    private String lastName;
+    private String address1;
+    private String contactNo;
+    private String postCode;
+
 
     public String getBirthDay() {
         return birthDay;
@@ -42,6 +48,46 @@ public class UserData {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getAddress1() {
+        return address1;
+    }
+
+    public void setAddress1(String address1) {
+        this.address1 = address1;
+    }
+
+    public String getContactNo() {
+        return contactNo;
+    }
+
+    public void setContactNo(String contactNo) {
+        this.contactNo = contactNo;
+    }
+
+    public String getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
     }
 
     public String getEmail() {
@@ -90,8 +136,14 @@ public class UserData {
                 password = "12345";
                 break;
             case REGISTERED_USER:
-                email = "williamjacob802@gmail.com";
+                email = "williamjacob803@gmail.com";
                 password = "12345678";
+                firstName = "William";
+                lastName = "Jacob";
+                country = "Australia";
+                contactNo = "5555555555";
+                address1 = "ABC";
+                postCode = "2000";
 
         }
     }

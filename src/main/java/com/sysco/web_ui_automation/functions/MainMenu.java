@@ -10,4 +10,16 @@ public class MainMenu {
     public static void navigateTo(Pages page){
         mainMenuPage.navigateTo(page);
     }
+
+    public static void expandMenuItem(Pages page){
+        mainMenuPage.moveToMenuItem(page);
+    }
+
+    public static void selectSubMenu(Pages pages){
+        mainMenuPage.selectLinkInSubMenu(pages);
+    }
+
+    public static void removeAllItemsFromCart(){
+        mainMenuPage.removeAllItemsFromCart();
+    }
 }

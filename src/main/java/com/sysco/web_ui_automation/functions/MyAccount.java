@@ -24,4 +24,10 @@ public class MyAccount {
         myAccountPage.clickLoginButton();
         return myAccountPage.getEmailErrorMessage();
     }
+
+    public static void Login(UserData userData){
+        myAccountPage.enterEmailAddress(userData.getEmail());
+        myAccountPage.enterPassword(userData.getPassword());
+        myAccountPage.clickLoginButton();
+    }
 }

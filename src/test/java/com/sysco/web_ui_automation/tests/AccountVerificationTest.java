@@ -3,10 +3,7 @@ package com.sysco.web_ui_automation.tests;
 import com.sysco.web_ui_automation.Types.Pages;
 import com.sysco.web_ui_automation.Types.UserTypes;
 import com.sysco.web_ui_automation.data.UserData;
-import com.sysco.web_ui_automation.functions.AgeVerification;
-import com.sysco.web_ui_automation.functions.Home;
-import com.sysco.web_ui_automation.functions.MainMenu;
-import com.sysco.web_ui_automation.functions.MyAccount;
+import com.sysco.web_ui_automation.functions.*;
 import com.sysco.web_ui_automation.utils.TestBase;
 import com.syscolab.qe.core.reporting.SyscoLabListener;
 import org.testng.ITestContext;
@@ -79,6 +76,19 @@ public class AccountVerificationTest extends TestBase {
         UserData invalidPasswordUser = new UserData(UserTypes.INVALID_PASSWORD);
         String errorMessage = MyAccount.loginWithPasswordError(invalidPasswordUser);
         softAssert.assertEquals(errorMessage,INVALID_PASSWORD_MESSAGE, "Verify Password is Invalid");
+        softAssert.assertAll();
+    }
+
+    @Test(description = "Verify Successful login with a registered user" ,dependsOnMethods = "testInvalidPasswordRejected")
+    public void testSuccessfulLogin(){
+
+        softAssert = new SoftAssert();
+        UserData registeredUser = new UserData(UserTypes.REGISTERED_USER);
+        MyAccount.Login(registeredUser);
+        AccountManagement.verifyPageLoaded();
+        String loggedUserName = AccountManagement.getLoggedInUserName();
+        softAssert.assertEquals(loggedUserName,registeredUser.getFirstName().toUpperCase()
+                + " " + registeredUser.getLastName().toUpperCase());
         softAssert.assertAll();
     }
 
