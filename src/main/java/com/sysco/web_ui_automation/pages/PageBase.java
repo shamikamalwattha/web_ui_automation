@@ -73,7 +73,7 @@ public abstract class PageBase {
     public void sleep(long seconds){
 
         try {
-            Thread.sleep(seconds);
+            TimeUnit.SECONDS.sleep(seconds);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

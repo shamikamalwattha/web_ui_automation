@@ -29,7 +29,7 @@ public class MainMenuPage extends PageBase {
                 break;
 
             case MY_ACCOUNT:
-                sleep(3000);
+                sleep(3);
                 syscoLabUI.click(lnkMyAccount);
                 break;
             case SHOPPING_CART:
