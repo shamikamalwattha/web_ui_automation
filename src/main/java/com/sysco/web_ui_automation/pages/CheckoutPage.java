@@ -1,7 +1,6 @@
 package com.sysco.web_ui_automation.pages;
 
-import com.sysco.web_ui_automation.data.PaymentMethod;
-import jxl.write.Boolean;
+import com.sysco.web_ui_automation.Types.PaymentMethods;
 import org.openqa.selenium.By;
 
 public class CheckoutPage extends PageBase {
@@ -103,11 +102,11 @@ public class CheckoutPage extends PageBase {
              syscoLabUI.click(checkAuthorize);
     }
 
-    public void selectPaymentMethod(PaymentMethod paymentMethod){
+    public void selectPaymentMethod(PaymentMethods paymentMethods){
 
         sleep(3);
         syscoLabUI.waitTillElementLoaded(rbCreditCard);
-        if (paymentMethod.equals(PaymentMethod.CREDIT_CARD)){
+        if (paymentMethods.equals(PaymentMethods.CREDIT_CARD)){
             syscoLabUI.click(rbCreditCard);
         } else {
             syscoLabUI.click(rbPaypal);
@@ -119,7 +118,7 @@ public class CheckoutPage extends PageBase {
     }
 
     public void fillCreditCardCVV(String cvv){
-        syscoLabUI.sendKeys(txtCreditCardNo,cvv);
+        syscoLabUI.sendKeys(txtCVV,cvv);
     }
 
     public String getCreditCardNumberError(){

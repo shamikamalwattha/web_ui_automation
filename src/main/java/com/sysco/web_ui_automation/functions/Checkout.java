@@ -1,7 +1,7 @@
 package com.sysco.web_ui_automation.functions;
 
 import com.sysco.web_ui_automation.data.CreditCardData;
-import com.sysco.web_ui_automation.data.PaymentMethod;
+import com.sysco.web_ui_automation.Types.PaymentMethods;
 import com.sysco.web_ui_automation.pages.CheckoutPage;
 
 public class Checkout {
@@ -83,8 +83,8 @@ public class Checkout {
         return checkoutPage.getCreditCardCVVError();
     }
 
-    public static void selectPaymentMethod(PaymentMethod paymentMethod){
-        checkoutPage.selectPaymentMethod(paymentMethod);
+    public static void selectPaymentMethod(PaymentMethods paymentMethods){
+        checkoutPage.selectPaymentMethod(paymentMethods);
     }
 
     public static void continueToPayment(){

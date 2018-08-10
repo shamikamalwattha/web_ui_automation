@@ -2,6 +2,7 @@ package com.sysco.web_ui_automation.tests;
 
 import com.sysco.web_ui_automation.Types.CreditCardTypes;
 import com.sysco.web_ui_automation.Types.Pages;
+import com.sysco.web_ui_automation.Types.PaymentMethods;
 import com.sysco.web_ui_automation.Types.UserTypes;
 import com.sysco.web_ui_automation.data.*;
 import com.sysco.web_ui_automation.functions.*;
@@ -89,15 +90,16 @@ public class ProductCartVerificationTest extends TestBase {
     public void testCreditCardValidation(){
 
         softAssert = new SoftAssert();
-        Checkout.selectPaymentMethod(PaymentMethod.CREDIT_CARD);
-        String messageCCNO1 = Checkout.fillCreditCardCVVWithInvalidData(new CreditCardData(CreditCardTypes.EMPTY_CC_NO));
+        Checkout.selectPaymentMethod(PaymentMethods.CREDIT_CARD);
+        String messageCCNO1 = Checkout.fillCreditCardNoWithInvalidData(new CreditCardData(CreditCardTypes.EMPTY_CC_NO));
         softAssert.assertEquals(messageCCNO1, VerficationMessages.MANDATORY_FIELD_MESSAGE, "Credit card no mandatory" );
 
+        String messageCCNO2 = Checkout.fillCreditCardNoWithInvalidData(new CreditCardData(CreditCardTypes.INVALID_CC_NO));
+        softAssert.assertEquals(messageCCNO2, VerficationMessages.INVALID_CC_NO_MESSAGE, "Credit card no invalid" );
+        
         String messageCVV1 = Checkout.fillCreditCardCVVWithInvalidData(new CreditCardData(CreditCardTypes.EMPTY_CVV_NO));
         softAssert.assertEquals(messageCVV1, VerficationMessages.MANDATORY_FIELD_MESSAGE, "Credit card CVV mandatory" );
 
-        String messageCCNO2 = Checkout.fillCreditCardCVVWithInvalidData(new CreditCardData(CreditCardTypes.INVALID_CC_NO));
-        softAssert.assertEquals(messageCCNO2, VerficationMessages.INVALID_CC_NO_MESSAGE, "Credit card no invalid" );
         softAssert.assertAll();
 
     }
