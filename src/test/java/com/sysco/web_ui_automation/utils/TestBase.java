@@ -2,7 +2,6 @@ package com.sysco.web_ui_automation.utils;
 
 import com.sysco.web_ui_automation.pages.HomePage;
 import com.sysco.web_ui_automation.pages.PageBase;
-import com.syscolab.qe.core.common.LoggerUtil;
 import com.syscolab.qe.core.reporting.SyscoLabListener;
 import com.syscolab.qe.core.reporting.SyscoLabQCenter;
 import com.syscolab.qe.core.reporting.SyscoLabReporting;
@@ -32,14 +31,10 @@ public class TestBase {
         syscoLabQCenter = new SyscoLabQCenter();
         DriverSetUpUtil.setToRunLocally();
         syscoLabWUI = new SyscoLabWUI(null);
-        try {
-            String URL = URLEncoder.encode(Constants.APP_URL, "UTF-8");
-            syscoLabWUI.navigateTo(Constants.APP_URL);
-            syscoLabWUI.getDriver().manage().window().maximize();
-            PageBase.setWebDriver(syscoLabWUI.getDriver());
-        } catch (UnsupportedEncodingException e) {
-            LoggerUtil.logERROR("Unable to encode URL", e);
-        }
+        syscoLabWUI.navigateTo(Constants.APP_URL);
+        syscoLabWUI.getDriver().manage().window().maximize();
+        PageBase.setWebDriver(syscoLabWUI.getDriver());
+
     }
 
     @BeforeTest
