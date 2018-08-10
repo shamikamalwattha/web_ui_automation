@@ -16,14 +16,21 @@ public class MyAccount {
     }
 
     public static String loginWithPasswordError(UserData userData){
+        myAccountPage.clearEmailAddress();
+        myAccountPage.clearPassword();
         myAccountPage.enterEmailAddress(userData.getEmail());
-        myAccountPage.enterPassword(userData.getPassword());
+        if(!userData.getPassword().isEmpty())
+            myAccountPage.enterPassword(userData.getPassword());
         myAccountPage.clickLoginButton();
         return myAccountPage.getPaswordErrorMessage();
     }
 
     public static String loginWithEmailError(UserData userData){
-        myAccountPage.enterEmailAddress(userData.getEmail());
+
+        myAccountPage.clearEmailAddress();
+        myAccountPage.clearPassword();
+        if(!userData.getEmail().isEmpty())
+            myAccountPage.enterEmailAddress(userData.getEmail());
         myAccountPage.enterPassword(userData.getPassword());
         myAccountPage.clickLoginButton();
         return myAccountPage.getEmailErrorMessage();
@@ -34,4 +41,5 @@ public class MyAccount {
         myAccountPage.enterPassword(userData.getPassword());
         myAccountPage.clickLoginButton();
     }
+
 }

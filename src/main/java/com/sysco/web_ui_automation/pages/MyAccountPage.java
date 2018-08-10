@@ -35,4 +35,12 @@ public class MyAccountPage extends PageBase {
         syscoLabUI.waitTillElementLoaded(btnLogin);
     }
 
+    public void clearEmailAddress(){
+        syscoLabUI.clear(txtEmail);
+    }
+
+    public void clearPassword(){
+        syscoLabUI.clear(txtPassword);
+    }
+
 }
