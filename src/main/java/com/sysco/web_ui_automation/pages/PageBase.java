@@ -1,14 +1,11 @@
 package com.sysco.web_ui_automation.pages;
 
-import com.syscolab.qe.core.common.LoggerUtil;
 import com.syscolab.qe.core.ui.SyscoLabUI;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
@@ -33,7 +30,7 @@ public abstract class PageBase {
             webDriver.manage().timeouts().implicitlyWait(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
             return syscoLabUI.isDisplayed(element);
         } catch (Exception e){
-            LoggerUtil.logERROR("Element located by: " + by +  " not displayed", e);
+            //LoggerUtil.logERROR("Element located by: " + by +  " not displayed", e);
             webDriver.manage().timeouts().implicitlyWait(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
             return false;
         }
