@@ -23,8 +23,7 @@ public abstract class PageBase {
     protected static RemoteWebDriver webDriver;
 
     public PageBase(){
-        syscoLabUI = new SyscoLabUI();
-        syscoLabUI.driver = webDriver;
+
     }
 
     protected boolean isDisplayed(By by, Long timeOut){
@@ -67,6 +66,8 @@ public abstract class PageBase {
 
     public static void setWebDriver(RemoteWebDriver webDriver) {
         PageBase.webDriver = webDriver;
+        syscoLabUI = new SyscoLabUI();
+        syscoLabUI.driver = PageBase.webDriver;
     }
 
     public void sleep(long seconds){
