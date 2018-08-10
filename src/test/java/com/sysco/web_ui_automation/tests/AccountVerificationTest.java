@@ -35,7 +35,8 @@ public class AccountVerificationTest extends TestBase {
 
         softAssert = new SoftAssert();
         MainMenu.navigateTo(Pages.MY_ACCOUNT);
-        softAssert.assertTrue(MyAccount.verifyPageLoaded(), "Verify My Account Page is loaded");
+        MyAccount.verifyPageLoaded();
+        softAssert.assertTrue(MyAccount.isLoginButtonDisplayed(), "Verify My Account Page is loaded");
         softAssert.assertAll();
     }
 

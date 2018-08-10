@@ -73,7 +73,7 @@ public class MainMenuPage extends PageBase {
 
         if(!getCartIsEmpty()){
             syscoLabUI.click(btnCheckout);
-            ShoppingCart.verifyShoppingCartLoaded();
+            ShoppingCart.waitUntillPageLoaded();
 
             syscoLabUI.click(btnRemove);
             syscoLabUI.waitTillElementDisappear(btnRemove);

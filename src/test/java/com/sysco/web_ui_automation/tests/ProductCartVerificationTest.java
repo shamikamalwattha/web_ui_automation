@@ -49,7 +49,7 @@ public class ProductCartVerificationTest extends TestBase {
         Products.addItemToCart();
 
         MainMenu.navigateTo(Pages.SHOPPING_CART);
-        ShoppingCart.verifyShoppingCartLoaded();
+        ShoppingCart.waitUntillPageLoaded();
         softAssert.assertEquals(ShoppingCart.getShoppingCartItemName(1).toUpperCase(),(ProductData.BUNDABERG_BLACK_CART_NAME));
         softAssert.assertEquals(ShoppingCart.getShoppingCartItemPrice(1).toUpperCase(),ProductData.BUNDABERG_BLACK_PRICE);
         softAssert.assertAll();

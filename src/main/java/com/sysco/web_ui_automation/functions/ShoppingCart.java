@@ -14,8 +14,8 @@ public class ShoppingCart {
         return shoppingCartPage.getItemPrice(itemIndex);
     }
 
-    public static boolean verifyShoppingCartLoaded(){
-        return shoppingCartPage.isCheckoutButtonDisplayed();
+    public static void waitUntillPageLoaded(){
+        shoppingCartPage.waitUntillPageLoaded();
     }
 
     public static void proceedToCheckout(){

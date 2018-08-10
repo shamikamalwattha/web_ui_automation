@@ -12,7 +12,7 @@ public class MyAccountPage extends PageBase {
 
 
     public boolean isLoginButtonVisible(){
-        return isDisplayed(btnLogin,10L);
+        return isDisplayed(btnLogin,15L);
     }
 
     public void enterEmailAddress(String emailAddress){
@@ -30,4 +30,9 @@ public class MyAccountPage extends PageBase {
     public String getPaswordErrorMessage(){
         return syscoLabUI.getText(divPasswordError);
     }
+
+    public void waitUntillPageLoaded(){
+        syscoLabUI.waitTillElementLoaded(btnLogin);
+    }
+
 }

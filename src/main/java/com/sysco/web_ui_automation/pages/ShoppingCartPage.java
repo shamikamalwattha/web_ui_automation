@@ -27,6 +27,10 @@ public class ShoppingCartPage extends PageBase {
         return isDisplayed(btnCheckout,10L);
     }
 
+    public void waitUntillPageLoaded(){
+        syscoLabUI.waitTillElementLoaded(btnCheckout);
+    }
+
     public void clickProceedToCheckoutBtn(){
         syscoLabUI.click(btnCheckout);
     }

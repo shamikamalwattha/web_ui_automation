@@ -7,7 +7,11 @@ public class MyAccount {
 
     private static MyAccountPage myAccountPage = new MyAccountPage();
 
-    public static boolean verifyPageLoaded(){
+    public static void verifyPageLoaded(){
+        myAccountPage.waitUntillPageLoaded();
+    }
+
+    public static boolean isLoginButtonDisplayed(){
         return myAccountPage.isLoginButtonVisible();
     }
 
