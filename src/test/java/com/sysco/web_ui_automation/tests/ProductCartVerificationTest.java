@@ -22,7 +22,7 @@ public class ProductCartVerificationTest extends TestBase {
     UserData registeredUser;
     @BeforeClass
     public void initClass(ITestContext iTestContext) {
-        iTestContext.setAttribute("feature", "Account Verification - Account Verification");
+        iTestContext.setAttribute("feature", "Bundabergrum - Checkout");
 
         AgeVerification.verifyPageLoaded();
         UserData legalAgeUser = new UserData(UserTypes.LEGAL_AGE);

@@ -22,7 +22,7 @@ public class AccountVerificationTest extends TestBase {
     private SoftAssert softAssert;
     @BeforeClass
     public void initClass(ITestContext iTestContext) {
-        iTestContext.setAttribute("feature", "Account Verification - Account Verification");
+        iTestContext.setAttribute("feature", "Bundabergrum - Checkout");
     }
 
     @Test(description = "Verify My Account Page Loaded")

@@ -21,7 +21,7 @@ public class AgeVerificationTest extends TestBase {
     private SoftAssert softAssert;
     @BeforeClass
     public void initClass(ITestContext iTestContext) {
-        iTestContext.setAttribute("feature", "Age Verification - Age Verification");
+        iTestContext.setAttribute("feature", "Bundabergrum - Checkout");
     }
 
     @Test(description = "Verify age less than 18 message")
@@ -37,7 +37,7 @@ public class AgeVerificationTest extends TestBase {
         softAssert.assertAll();
     }
 
-    @Test(description = "Verify legal age users are navigated to home page", dependsOnMethods = "verifyAgeLessThan18")
+    @Test(description = "Verify legal age users are navigated to home page", dependsOnMethods = "testAgeLessThan18")
     public void testAgeMoreThan18(){
 
         softAssert = new SoftAssert();
