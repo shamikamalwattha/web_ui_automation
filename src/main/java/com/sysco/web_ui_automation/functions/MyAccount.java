@@ -16,32 +16,30 @@ public class MyAccount {
     }
 
     public static String loginWithPasswordError(UserData userData){
-        myAccountPage.clearEmailAddress();
-        myAccountPage.clearPassword();
+        refreshPage();
         myAccountPage.enterEmailAddress(userData.getEmail());
-        if(!userData.getPassword().isEmpty())
-            myAccountPage.enterPassword(userData.getPassword());
+        myAccountPage.enterPassword(userData.getPassword());
         myAccountPage.clickLoginButton();
         return myAccountPage.getPaswordErrorMessage();
     }
 
     public static String loginWithEmailError(UserData userData){
-
-        myAccountPage.clearEmailAddress();
-        myAccountPage.clearPassword();
-        if(!userData.getEmail().isEmpty())
-            myAccountPage.enterEmailAddress(userData.getEmail());
+        refreshPage();
+        myAccountPage.enterEmailAddress(userData.getEmail());
         myAccountPage.enterPassword(userData.getPassword());
         myAccountPage.clickLoginButton();
         return myAccountPage.getEmailErrorMessage();
     }
 
     public static void Login(UserData userData){
-        myAccountPage.clearEmailAddress();
-        myAccountPage.clearPassword();
+        refreshPage();
         myAccountPage.enterEmailAddress(userData.getEmail());
         myAccountPage.enterPassword(userData.getPassword());
         myAccountPage.clickLoginButton();
+    }
+
+    public static void refreshPage(){
+        myAccountPage.refreshPage();
     }
 
 }

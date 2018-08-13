@@ -82,4 +82,8 @@ public abstract class PageBase {
         WebDriverWait wait = new WebDriverWait(webDriver, DEFAULT_TIMEOUT);
         return wait.until(ExpectedConditions.elementToBeClickable(by));
     }
+
+    public void refreshPage(){
+        webDriver.navigate().refresh();
+    }
 }
