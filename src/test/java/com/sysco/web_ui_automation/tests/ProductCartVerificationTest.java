@@ -107,7 +107,6 @@ public class ProductCartVerificationTest extends TestBase {
     public void testSuccessfulLogin(){
 
         softAssert = new SoftAssert();
-        UserData registeredUser = new UserData(UserTypes.REGISTERED_USER);
         MyAccount.Login(registeredUser);
         AccountManagement.verifyPageLoaded();
         String loggedUserName = AccountManagement.getLoggedInUserName();

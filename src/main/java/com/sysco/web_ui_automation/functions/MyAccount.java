@@ -37,6 +37,8 @@ public class MyAccount {
     }
 
     public static void Login(UserData userData){
+        myAccountPage.clearEmailAddress();
+        myAccountPage.clearPassword();
         myAccountPage.enterEmailAddress(userData.getEmail());
         myAccountPage.enterPassword(userData.getPassword());
         myAccountPage.clickLoginButton();
