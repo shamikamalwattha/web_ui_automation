@@ -44,6 +44,7 @@ public class TestBase {
 
     @AfterClass(alwaysRun = true)
     public void cleanUp(ITestContext iTestContext) {
+        syscoLabWUI.closeDriver();
         syscoLabWUI.quit();
 
         try {
