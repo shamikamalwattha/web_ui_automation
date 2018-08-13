@@ -107,8 +107,10 @@ public class CheckoutPage extends PageBase {
         sleep(3);
         syscoLabUI.waitTillElementLoaded(rbCreditCard);
         if (paymentMethods.equals(PaymentMethods.CREDIT_CARD)){
+            waitUntilElementClickable(rbCreditCard);
             syscoLabUI.click(rbCreditCard);
         } else {
+            waitUntilElementClickable(rbCreditCard);
             syscoLabUI.click(rbPaypal);
         }
     }
