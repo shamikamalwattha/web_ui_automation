@@ -45,6 +45,7 @@ public class TestBase {
     @AfterClass(alwaysRun = true)
     public void cleanUp(ITestContext iTestContext) {
 
+
         try {
             syscoLabQCenter.setProjectName(Constants.TEST_PROJECT);
             syscoLabQCenter.setEnvironment(Constants.TEST_ENV);
@@ -56,10 +57,12 @@ public class TestBase {
 
             if (Constants.UPDATE_DASHBOARD)
                 SyscoLabReporting.generateJsonFile(SyscoLabListener.getResults(), syscoLabQCenter);
-            PageBase.quit();
+            syscoLabWUI.closeDriver();
+            syscoLabWUI.quit();
 
         } catch (Exception e) {
-            PageBase.quit();
+            syscoLabWUI.closeDriver();
+            syscoLabWUI.quit();
             e.printStackTrace();
         }
     }
