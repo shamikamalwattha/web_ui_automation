@@ -56,12 +56,10 @@ public class TestBase {
 
             if (Constants.UPDATE_DASHBOARD)
                 SyscoLabReporting.generateJsonFile(SyscoLabListener.getResults(), syscoLabQCenter);
-            syscoLabWUI.closeDriver();
-            syscoLabWUI.quit();
+            PageBase.quit();
 
         } catch (Exception e) {
-            syscoLabWUI.closeDriver();
-            syscoLabWUI.quit();
+            PageBase.quit();
             e.printStackTrace();
         }
     }

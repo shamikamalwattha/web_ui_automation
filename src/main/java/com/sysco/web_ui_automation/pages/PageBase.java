@@ -75,4 +75,9 @@ public abstract class PageBase {
             e.printStackTrace();
         }
     }
+
+    public static void quit(){
+        webDriver.close();
+        webDriver.quit();
+    }
 }
