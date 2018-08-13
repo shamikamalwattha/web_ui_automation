@@ -9,6 +9,10 @@ public class AccountManagement {
         return accountManagementPage.isUserWelcomeMsgDisplayed();
     }
 
+    public static void waitUntilPageLoaded(){
+        accountManagementPage.waitUntilPageLoaded();
+    }
+
     public static String getLoggedInUserName(){
         return accountManagementPage.getLoggedInUserName();
     }

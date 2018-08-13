@@ -108,7 +108,7 @@ public class ProductCartVerificationTest extends TestBase {
 
         softAssert = new SoftAssert();
         MyAccount.Login(registeredUser);
-        AccountManagement.verifyPageLoaded();
+        AccountManagement.waitUntilPageLoaded();
         String loggedUserName = AccountManagement.getLoggedInUserName();
         softAssert.assertEquals(loggedUserName,registeredUser.getFirstName().toUpperCase()
                 + " " + registeredUser.getLastName().toUpperCase());
