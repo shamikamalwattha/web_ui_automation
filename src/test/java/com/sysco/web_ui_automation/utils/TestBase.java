@@ -6,9 +6,12 @@ import com.syscolab.qe.core.reporting.SyscoLabListener;
 import com.syscolab.qe.core.reporting.SyscoLabQCenter;
 import com.syscolab.qe.core.reporting.SyscoLabReporting;
 import com.sysco.web_ui_automation.common.Constants;
+import com.syscolab.qe.core.ui.SyscoLabCapabilityUtil;
 import com.syscolab.qe.core.ui.SyscoLabUI;
 import com.syscolab.qe.core.ui.web.SyscoLabWUI;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
@@ -18,6 +21,8 @@ import org.testng.annotations.Listeners;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+
+import static com.sysco.web_ui_automation.common.Constants.APP_URL;
 
 @Listeners(SyscoLabListener.class)
 public class TestBase {
@@ -30,10 +35,15 @@ public class TestBase {
         testListeners = new SyscoLabListener();
         syscoLabQCenter = new SyscoLabQCenter();
         DriverSetUpUtil.setToRunLocally();
+        /*ChromeOptions options = new ChromeOptions();
+        System.setProperty("hub.url", APP_URL);
+        DesiredCapabilities capabilities1 = SyscoLabCapabilityUtil.getPCCapabilities("", "");
+        capabilities1.setBrowserName(BrowserType.CHROME);
+        capabilities1.setCapability(ChromeOptions.CAPABILITY, options);*/
         syscoLabWUI = new SyscoLabWUI(null);
-        syscoLabWUI.navigateTo(Constants.APP_URL);
+        syscoLabWUI.navigateTo(APP_URL);
         syscoLabWUI.getDriver().manage().window().maximize();
-        PageBase.setWebDriver(syscoLabWUI.getDriver());
+        PageBase.setSyscoLabUI(syscoLabWUI);
 
     }
 

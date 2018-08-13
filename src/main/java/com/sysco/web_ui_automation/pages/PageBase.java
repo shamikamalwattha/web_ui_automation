@@ -61,10 +61,10 @@ public abstract class PageBase {
 
     }
 
-    public static void setWebDriver(RemoteWebDriver webDriver) {
-        PageBase.webDriver = webDriver;
-        syscoLabUI = new SyscoLabUI();
-        syscoLabUI.driver = PageBase.webDriver;
+    public static void setSyscoLabUI(SyscoLabUI syscoLabUI) {
+
+        PageBase.syscoLabUI = syscoLabUI;
+        PageBase.webDriver = PageBase.syscoLabUI.driver;
     }
 
     public void sleep(long seconds){
