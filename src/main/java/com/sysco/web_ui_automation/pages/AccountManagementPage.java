@@ -6,7 +6,7 @@ import static com.sysco.web_ui_automation.common.Constants.DEFAULT_TIMEOUT;
 
 public class AccountManagementPage extends PageBase{
 
-    private By txtWelcomeMessage = By.xpath("//div[@class='welcome-msg']/h2");
+    private By txtWelcomeMessage = By.xpath("//div[@class='dashboard']//div[@class='welcome-msg']");
 
 
     public String getLoggedInUserName(){
