@@ -23,7 +23,8 @@ public class MyAccountPage extends PageBase {
     }
     public void clickLoginButton(){
         waitUntilElementClickable(btnLogin);
-        syscoLabUI.click(btnLogin);
+        syscoLabUI.moveToAndClick(btnLogin);
+        //syscoLabUI.click(btnLogin);
     }
     public String getEmailErrorMessage(){
         return syscoLabUI.getText(divEmailError);
