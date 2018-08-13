@@ -10,6 +10,7 @@ import com.syscolab.qe.core.ui.SyscoLabCapabilityUtil;
 import com.syscolab.qe.core.ui.SyscoLabUI;
 import com.syscolab.qe.core.ui.web.SyscoLabWUI;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -42,7 +43,8 @@ public class TestBase {
         capabilities1.setCapability(ChromeOptions.CAPABILITY, options);*/
         syscoLabWUI = new SyscoLabWUI(null);
         syscoLabWUI.navigateTo(APP_URL);
-        syscoLabWUI.getDriver().manage().window().maximize();
+        Dimension d = new Dimension(1366,768); //Resize the current window to the given dimension driver.manage().window().setSize(d);
+        syscoLabWUI.driver.manage().window().setSize(d);
         PageBase.setSyscoLabUI(syscoLabWUI);
 
     }
