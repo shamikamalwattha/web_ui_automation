@@ -22,7 +22,7 @@ public class MyAccountPage extends PageBase {
         syscoLabUI.sendKeys(txtPassword,password);
     }
     public void clickLoginButton(){
-        syscoLabUI.waitTillElementLoaded(btnLogin);
+        waitUntilElementClickable(btnLogin);
         syscoLabUI.click(btnLogin);
     }
     public String getEmailErrorMessage(){

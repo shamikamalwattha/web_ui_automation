@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
@@ -74,5 +75,11 @@ public abstract class PageBase {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public WebElement waitUntilElementClickable(By by){
+
+        WebDriverWait wait = new WebDriverWait(webDriver, DEFAULT_TIMEOUT);
+        return wait.until(ExpectedConditions.elementToBeClickable(by));
     }
 }
